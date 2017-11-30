@@ -1,0 +1,23 @@
+<!-- <div ng-include="'./templates/header.html'"></div> -->
+<ion-view class="login-pane">
+  <div class="header full">
+    <img src="img/LogoWhite.png" class="logo-header">
+  </div>
+  <p class="msg-erro" ng-if="mensagemErro">{{mensagemErro}}</p>
+  <form>
+    <div class="list list-inset">
+      <label class="item item-input">
+          <input type="text" placeholder="Login" class="form-control" ng-model="email">
+      </label>
+      <label class="item item-input">
+          <input type="password" placeholder="Senha" class="form-control" ng-model="senha">
+      </label>
+      <button class="button button-block button-royal" ng-click="login()">Login</button>
+    </div>
+  </form>
+  <div class="row">
+    <div class="col col-50"><p class="button-link" ng-click="irCadastro()"> Registre-se </p></div>
+    <div class="col col-50 text-right"><p class="button-link">Esqueceu a senha?</p></div>
+  </div>
+
+</ion-view>

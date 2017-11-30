@@ -1,0 +1,22 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+  	<div class="list list-inset">
+        <label class="item item-input">
+          <input type="email" placeholder="E-mail" ng-model="cliente.email" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="nome" ng-model="cliente.nome" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="telefone" ng-model="cliente.telefone" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="celular" ng-model="cliente.celular" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="CPF ou CNPJ" ng-model="cliente.cpf_cnpj" required>
+        </label>
+
+        <button class="button button-royal button-block" ng-disabled="formCadastro.$invalid" ng-click="alterarCliente(cliente)">Alterar</button>
+    </div>
+</ion-view>

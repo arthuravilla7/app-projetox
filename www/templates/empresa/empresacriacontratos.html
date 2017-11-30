@@ -1,0 +1,53 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+	<div ng-include src="templates/header.html"></div>
+	<form name="formAtividade">
+		<div class="row">
+			<div class="col">
+				<label class="item item-input">
+				<textarea placeholder="Descrição da atividade" class="form-control" rows="5" ng-model="contrato.descricao" required>
+				</textarea>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input">
+					<div class="input-label">
+						Valor:
+					</div>
+					<input class="form-control" type="number" placeholder="300,00" ng-model="contrato.valor_contratado" required>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input">
+					<div class="input-label">
+						Profissional:
+					</div>
+					<select class="form-control" ng-model="contrato.profissional_responsavel" 
+						ng-options="profissional.id as profissional.nome for profissional in listaProfissionais" required> 
+					</select>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<label class="item item-input">
+					<div class="input-label">
+						Cliente:
+					</div>
+					<select class="form-control" ng-model="contrato.cliente_responsavel" 
+						ng-options="cliente.id as cliente.nome for cliente in listaClientes" required> 
+					</select>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<button class="button button-royal button-block" ng-disabled="formAtividade.$invalid" ng-click="abrirConfirmacaoCriarAtividade(contrato)">Criar atividade</button>   
+			</div>
+		</div>
+	</form>
+</ion-view>

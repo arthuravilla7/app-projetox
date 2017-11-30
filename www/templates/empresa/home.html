@@ -1,0 +1,36 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+	<div class="row nome-header">
+		<div class="col">
+			<h1 class="nome">Empresa home</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-50">
+			<button class="button btn-icone" ng-click="irListaProfissionais()">
+				<div class="img-wrapper"><img src="img/users.png"></div>
+				Seus profissionais
+			</button>
+		</div>
+		<div class="col-50">
+			<button class="button btn-icone" ng-click="irPesquisaProfissional()">
+				<div class="img-wrapper"><img src="img/find-user.png"></div>
+				Buscar profissional
+			</button>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-50">
+			<button class="button btn-icone" ng-click="irListaContratos()">
+				<div class="img-wrapper"><img src="img/files.png"></div>
+				Seus contratos
+			</button>
+		</div>
+		<div class="col-50">
+			<button class="button btn-icone" ng-click="irCriaContratos()">
+				<div class="img-wrapper"><img src="img/add-file.png"></div>
+				Criar contrato
+			</button>
+		</div>
+	</div>
+</ion-view>

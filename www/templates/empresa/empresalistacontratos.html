@@ -1,0 +1,54 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+  	<div class="card" ng-repeat="atividade in listaAtividades">
+		<div class="item item-divider">
+		    <p>Atividade {{$index+1}}</p>   
+		</div>
+
+		<div class="item item-text-wrap">
+		<dl>
+			<dt>Cliente:</dt>
+				<dd>{{::atividade.cliente.nome}}</dd>
+			<dt>Profissional:</dt>
+				<dd>{{::atividade.profissional.nome}}</dd>
+			<dt>Data de criação:</dt>
+				<!--<dd>{{::atividade.data_criacao}}</dd>-->
+				<dd>{{::getDataFormatada(atividade.data_criacao)}}</dd>
+			<dt>Valor de contrato:</dt>
+				<dd>R${{::atividade.valor_contratado}}</dd>
+		</dl>
+		</div>
+
+		<div class="item item-divider" ng-if="atividade.movimentos.length > 0">
+			<button class="button button-royal button-block" ng-click="abrirModalListaMovimentos(atividade)">Movimentos</button>
+		</div> 
+	</div>
+</ion-view>
+
+<script id="modalListaMovimentos.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+  		<button class="voltar-btn" ng-click="fecharModalListaMovimentos()">
+				<img src="img/left-arrow.png">
+			</button>
+      <h1 class="title">Movimentos</h1>
+    </ion-header-bar>
+
+    <ion-content>
+		<div class="card" ng-repeat="movimento in atividadeSelecionada.movimentos">
+			<div class="item item-divider">
+				<p>Movimento {{$index+1}}</p>
+			</div>
+			
+			<div class="item item-text-wrap">
+				<dl>
+					<dt>Descrição:</dt>
+						<dd>{{movimento.descricao}}</dd>
+					<dt>Data de criação:</dt>
+						<dd>{{::getDataFormatada(movimento.data_criacao)}}</dd>
+				</dl>
+			</div>	
+		</div>	
+    </ion-content>
+  </ion-modal-view>
+</script>

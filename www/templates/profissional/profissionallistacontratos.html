@@ -1,0 +1,130 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+  	<div class="card" ng-repeat="atividade in listaAtividades">
+		<div class="item item-divider">
+			<span class="nome-profissional">Atividade {{$index+1}}</span>
+			 <button class="button btn-excluir" ng-click="abrirModalMovimento(atividade.id)">
+				<img src="img/list.png">
+      		</button> 
+      <img ng-if="atividade.conclsao" src="img/checked.png" class="btn-excluir">
+		</div>
+
+		<div class="item item-text-wrap">
+		   <p>Descrição: {{::atividade.descricao}}</p>
+		   <p>Cliente: {{::atividade.cliente.nome}}</p>
+		   <p>Profissional: {{::atividade.profissional.nome}}</p>
+		   <p>Data de criação: {{::getDataFormatada(atividade.data_criacao)}}</p>
+		   <p>Valor de contrato: {{::atividade.valor_contratado}}</p>
+		</div>
+
+		<div class="item item-divider" ng-if="atividade.movimentos.length > 0">
+			<button class="button button-royal button-block" ng-click="abrirModalListaMovimentos(atividade)">Movimentos</button>
+		</div>
+	</div>
+</ion-view>
+
+<!-- *********** modais de criar e listar movimentos e modal criar follow up ************-->
+<script id="modalMovimento.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+    	<div>
+    		<button class="voltar-btn" ng-click="fecharModalMovimento()">
+				<img src="img/left-arrow.png">
+			</button>
+      		<span class="title">Novo movimento</span>
+    	</div>	
+    </ion-header-bar>
+
+    <ion-content>
+    	<form name="formMovimento">
+				<div class="row">
+					<div class="col">
+						<label class="item item-input">
+							<!-- se puder ser textarea, melhor -->
+							<!-- <input type="text" placeholder="Descrição o movimento" ng-model="movimento.descricao" required> -->
+							<textarea placeholder="Descrição do movimento" class="form-control" rows="5" ng-model="movimento.descricao" required>
+							</textarea>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button class="button button-royal button-block" ng-click="abrirConfirmacaoCriarMovimento(movimento)" ng-disabled="formMovimento.$invalid">Salvar</button>
+					</div>
+				</div>
+	    </form>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="modalListaMovimentos.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+    	<div>
+	  		<button class="voltar-btn" ng-click="fecharModalListaMovimentos()">
+				<img src="img/left-arrow.png">
+			</button>
+	     	<span class="title">Movimentos</span>
+	    </div> 	
+    </ion-header-bar>
+
+    <ion-content>
+		<div class="card" ng-repeat="movimento in atividadeSelecionada.movimentos">
+			<div class="item item-divider">
+				<span class="nome-profissional">Movimento {{$index+1}}</span>
+
+				<button class="button btn-excluir" ng-click="abrirModalFollowUp(movimento.id)" ng-hide="movimento.movimento_follow_ups.length > 0">
+					<img src="img/list.png">
+				</button>
+			</div>
+
+			<div class="item item-text-wrap">
+				<p>Descrição: {{movimento.descricao}}</p>
+				<p>Data de criação: {{::getDataFormatada(movimento.data_criacao)}}</p>
+			</div>
+
+			<div class="item item-divider" ng-if="movimento.movimento_follow_ups.length > 0">
+				<span class="nome-profissional">Acompanhamento</span>
+				<br>
+				<p>Descrição: {{movimento.movimento_follow_ups[0].descricao}}</p>
+				<p>Data de execução: {{getDataFormatada(movimento.movimento_follow_ups[0].data_execucao)}}</p>
+			</div>
+
+		</div>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="modalFollowUp.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+    	<div>
+	  		<button class="voltar-btn" ng-click="fecharModalFollowUp()">
+				<img src="img/left-arrow.png">
+			</button>
+	      	<span class="title">Novo Acompanhamento</span>
+      	</div>
+    </ion-header-bar>
+
+    <ion-content>
+    	<form name="formFollowUp">
+				<div class="row">
+					<div class="col">
+						<label class="item item-input">
+							<textarea placeholder="Descrição do acompanhamento" class="form-control" rows="5" ng-model="acompanhamento.descricao" required>
+							</textarea>
+						</label>
+						<label class="item item-input">
+							<input type="date" ng-model="acompanhamento.data_execucao" required>
+						</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<button class="button button-royal button-block" ng-click="abrirConfirmacaoCriarFollowUp(acompanhamento)" ng-disabled="formFollowUp.$invalid">Salvar</button>
+					</div>
+				</div>
+	    </form>
+    </ion-content>
+  </ion-modal-view>
+</script>

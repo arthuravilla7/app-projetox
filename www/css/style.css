@@ -1,0 +1,220 @@
+/* Empty. Add your own CSS if you like */
+/* UTILITY CLASSES */
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.login-pane {
+    background: #144ace;
+}
+
+.col-50 {
+    padding: 5px;
+}
+
+.pane {
+	overflow: auto;
+}
+
+dl {
+	margin-bottom: 0;
+}
+
+dt {
+	font-size:13px;
+	float: left;
+	margin-right:5px;
+}
+
+dd {
+	font-size:13px;
+}
+
+ion-view.pane:not(.login-pane) {
+    position: relative;
+}
+
+[nav-view-transition="ios"][nav-view-direction="forward"], [nav-view-transition="ios"][nav-view-direction="back"] {
+    background-color: #f6f6f6;
+}
+
+/* CLASSES GERAIS */
+body {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 300;
+}
+
+a, p, span, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow', sans-serif;
+}
+
+.bar-header {
+    background: #144ace;
+    height: 50px;
+    position: relative;
+}
+
+.bar-header .title {
+    color: #FFF;
+    font-size: 21px;
+    line-height: 50px;
+}
+
+.header-title {
+    text-transform: uppercase;
+}
+
+.msg-erro {
+  color: #c7254e;
+  background: #f2dede;
+  border: 1px solid #a94442;
+  padding: 5px 13px;
+  font-size: 14px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.bar-header button {
+    background: transparent;
+    border: none;
+    flex: 1 0 auto;
+}
+
+.voltar-btn img {
+  float: left;
+}
+
+.menu-btn img {
+  float: right;
+}
+
+.cadastro-header {
+    background: #ddd !important;
+}
+
+.header.full {
+    width: 100%;
+    display: block;
+    padding: 5px 0;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+.login-pane .list {
+    background: transparent;
+}
+
+.button.button-royal {
+    border-color: transparent;
+    background-color: #3681f9;
+    color: #FFF;
+}
+
+.button.button-royal:active {
+    background-color: #1b407c;
+}
+
+.button-link {
+    color: #FFF;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.nome-header {
+    background: #ddd;
+    margin-bottom: 15px;
+}
+
+.nome {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 20px;
+    padding:0;
+    margin: 0;
+    text-align: center;
+}
+
+.btn-icone {
+    background: #144ace;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: #FFF;
+    line-height: 1.4;
+    padding: 10px;
+    flex: 0 1 auto;
+}
+
+.btn-icone:hover {
+    color: #FFF;
+    background: #0e3390;
+}
+
+.btn-icone img {
+    padding-bottom:5px;
+}
+
+.btn-full {
+    font-size: 16px;
+    line-height: 2;
+}
+
+.btn-full img {
+    float: left;
+}
+
+.nome-profissional {
+    float: left;
+}
+
+.btn-excluir {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    min-height: 0;
+    text-align: right;
+    display: block;
+    float: right;
+}
+
+.item.item-input {
+    padding: 10px;
+}
+
+.form-control {
+    width: 100%;
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    height: 30px;
+}
+
+textarea.form-control {
+    height: auto;
+}
+
+.card.sucesso {
+  border: 1px solid #3c763d;
+}
+
+.card.sucesso .item-divider {
+  background: #dff0d8;
+}
+
+.card.sucesso .nome-profissional {
+  color: #3c763d;
+}

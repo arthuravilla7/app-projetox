@@ -1,0 +1,28 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+
+	<div class="bar bar-header item-input-inset">
+  		<label class="item-input-wrapper">
+	    	<i class="icon ion-ios-search placeholder-icon"></i>
+	    	<input type="search" ng-model="filtroBusca" placeholder="Nome ou profissão">
+  		</label>
+	  	<button class="button button-royal" ng-click="buscarPorFiltro(filtroBusca)">
+	    	Buscar
+	  	</button>
+	</div>
+  	<div ng-repeat="profissional in listaProfissionais">
+  		<div class="card">
+			<div class="item item-divider">
+			    <span class="nome-profissional">{{profissional.nome}}</span>
+			    <button class="button btn-excluir" ng-click="abrirConfirmacaoAssociarProfissional(profissional.id, $index)">
+  					<img src="img/add.png">
+				</button>
+			</div>
+			<div class="item item-text-wrap">
+			    <p>CPF: {{profissional.cpf}}</p>
+			    <p>E-mail: {{profissional.email}}</p>
+			    <p>Profissão: {{profissional.profissao.nome}}</p>
+			</div>
+		</div>
+  	</div>
+</ion-view>

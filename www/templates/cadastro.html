@@ -1,0 +1,123 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+  <form name="formCadastro">
+    <div class="list list-inset">
+      <label class = "item item-input item-select cadastro-header">
+        <div class = "input-label">
+           Você é um(a)?
+        </div>
+        
+        <select class="cadastro-header" ng-init="funcao = funcoes[2]" 
+          ng-model="funcao" 
+          ng-options="funcao.nome for funcao in funcoes">
+        </select>
+      </label>
+
+      <!-- cadastro de empresa -->
+      <div ng-if="funcao.valor === 0">
+        <label class="item item-input">
+          <input type="email" placeholder="E-mail" ng-model="empresa.email" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Senha" ng-model="empresa.senha" required>
+        </label>
+
+        <label class="item item-input">
+          <input type="text" placeholder="Razão social" ng-model="empresa.razao_social" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Nome fantasia" ng-model="empresa.nome_fantasia" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Responsável" ng-model="empresa.responsavel" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="Área de atuação" ng-model="empresa.area_atuacao" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="endereco" ng-model="empresa.endereco" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="telefone" ng-model="empresa.telefone" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="celular" ng-model="empresa.celular" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="CNPJ" ng-model="empresa.cnpj" required>
+        </label>
+
+        <button class="button button-royal button-block" ng-disabled="formCadastro.$invalid" ng-click="cadastrarEmpresa(empresa)">Cadastrar</button>
+      </div>
+
+      <!-- cadastro de cliente -->
+      <div ng-if="funcao.valor === 2">
+        <label class="item item-input">
+          <input type="email" placeholder="E-mail" ng-model="cliente.email" required>
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Senha" ng-model="cliente.senha" required>
+        </label>
+
+        <label class="item item-input">
+          <input type="text" placeholder="nome" ng-model="cliente.nome" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="telefone" ng-model="cliente.telefone" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="celular" ng-model="cliente.celular" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="CPF ou CNPJ" ng-model="cliente.cpf_cnpj" required>
+        </label>
+
+        <button class="button button-royal button-block" ng-disabled="formCadastro.$invalid" ng-click="cadastrarCliente(cliente)">Cadastrar</button>
+      </div>
+
+      <!-- cadastro de profissional -->
+      <div ng-if="funcao.valor === 1">
+        <label class="item item-input">
+          <input type="email" placeholder="E-mail" ng-model="profissional.email">
+        </label>
+        <label class="item item-input">
+          <input type="password" placeholder="Senha" ng-model="profissional.senha">
+        </label>
+
+        <label class="item item-input">
+          <input type="text" placeholder="nome" ng-model="profissional.nome">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="endereco" ng-model="profissional.endereco" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="CPF" ng-model="profissional.cpf">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="telefone" ng-model="profissional.telefone">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="celular" ng-model="profissional.celular">
+        </label>
+
+        <label class="item item-input">
+          <textarea placeholder="Breve descrição do histórico profissional" rows="4" cols="50" ng-model="profissional.curriculo">
+          </textarea>
+        </label>
+        <br>
+        <label class="item item-input item-select">
+          <div class = "input-label">
+           Profissão
+          </div>
+          <select ng-model="profissional.profissao_exercida" 
+            ng-options="profissao.id as profissao.nome for profissao in listaProfissoes"> 
+          </select>
+        </label>
+        
+        <button class="button button-royal button-block" ng-disabled="formCadastro.$invalid" ng-click="cadastrarProfissional(profissional)">Cadastrar</button>
+      </div>
+    
+
+    </div>  
+  </form>
+</ion-view>
