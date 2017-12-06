@@ -1,5 +1,9 @@
 <div ng-include="'./templates/header.html'"></div>
 <ion-view>
+	<div class="card" ng-if="listaProfissionais.length < 1">
+  		<div class="item item-text-wrap">Você não possui nenhum profissional associado.
+  		</div>
+	</div>
   	<div ng-repeat="profissional in listaProfissionais">
   		<div class="card">
 			<div class="item item-divider">

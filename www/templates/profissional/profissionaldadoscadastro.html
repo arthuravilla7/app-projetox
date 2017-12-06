@@ -1,0 +1,39 @@
+<div ng-include="'./templates/header.html'"></div>
+<ion-view>
+  	<div class="list list-inset">
+        <label class="item item-input">
+          <input type="email" placeholder="E-mail" ng-model="profissional.email">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="nome" ng-model="profissional.nome">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="endereco" ng-model="profissional.endereco" required>
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="CPF" ng-model="profissional.cpf">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="telefone" ng-model="profissional.telefone">
+        </label>
+        <label class="item item-input">
+          <input type="text" placeholder="celular" ng-model="profissional.celular">
+        </label>
+
+        <label class="item item-input">
+          <textarea placeholder="Breve descrição do histórico profissional" rows="4" cols="50" ng-model="profissional.curriculo">
+          </textarea>
+        </label>
+        <br>
+        <label class="item item-input item-select">
+          <div class = "input-label">
+           Profissão
+          </div>
+          <select ng-model="profissional.profissao_exercida" 
+            ng-options="profissao.id as profissao.nome for profissao in listaProfissoes"> 
+          </select>
+        </label>
+
+        <button class="button button-royal button-block" ng-disabled="formCadastro.$invalid" ng-click="alterarProfissional(profissional)">Alterar</button>
+    </div>
+</ion-view>

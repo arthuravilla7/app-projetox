@@ -63,6 +63,12 @@ angular.module('app').config(function($stateProvider, $urlRouterProvider) {
     controller: 'profissionalDadosEmpresaCtrl'
   })
 
+  .state('profissionaldadoscadastro', {
+    url: '/profissionaldadoscadastro',
+    templateUrl: 'templates/profissional/profissionaldadoscadastro.html',
+    controller: 'profissionalDadosCadastroCtrl'
+  })
+
   //***** bloco de rotas de cliente
   .state('clientehome', {
     url: '/clientehome',

@@ -10,6 +10,10 @@ function profissionalCtrl($scope, $state) {
   		$state.go('profissionadadosempresa');
   	}
 
+  	$scope.irDadosCadastro = function(){
+  		$state.go('profissionaldadoscadastro');
+  	}
+
   	$scope.voltarHome = function(){
       		$state.go('login');
   	};
