@@ -4,16 +4,16 @@ function loginCtrl($scope, $state, AuthService, empresaService, profissionalServ
 
     $scope.mensagemErro = null;
     //profissional
-    $scope.email = "josedasilva@mail"
-    $scope.senha = "123123"
+    //$scope.email = "josedasilva@mail"
+    //$scope.senha = "123123"
 
     //cliente
     //$scope.email = "cliente@mail.com"
     //$scope.senha = "123123"
 
     //empresa
-    //$scope.email = "empresa@mail"
-    //$scope.senha = "123qwe"
+    $scope.email = "empresa@mail"
+    $scope.senha = "123qwe"
 
 
   $scope.login = function(){
