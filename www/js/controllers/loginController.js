@@ -12,8 +12,8 @@ function loginCtrl($scope, $state, AuthService, empresaService, profissionalServ
     //$scope.senha = "123123"
 
     //empresa
-    $scope.email = "empresa@mail"
-    $scope.senha = "123qwe"
+    //$scope.email = "empresa@mail"
+    //$scope.senha = "123qwe"
 
 
   $scope.login = function(){
