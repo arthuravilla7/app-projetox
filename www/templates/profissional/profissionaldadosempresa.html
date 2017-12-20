@@ -1,7 +1,18 @@
 <div ng-include="'./templates/header.html'"></div>
 <ion-view>
-  	<div class="card" !profissional.empresa_responsavel">
+  	<div class="card" ng-if="!profissional.empresa_responsavel">
   		<div class="item item-text-wrap">Você não está associado a nenhuma empresa.
   		</div>
 	</div>
+	<div class="card" ng-if="profissional.empresa_responsavel">
+		<div class="item item-text-wrap">
+			<p>Razão social: {{::profissional.empresa.razao_social}}</p>
+			<p>Nome fantasia: {{::profissional.empresa.nome_fantasia}}</p>
+			<p>CNPJ: {{::profissional.empresa.cnpj}}</p>
+			<p>Área de atuação: {{::profissional.empresa.area_atuacao}}</p>
+			<p>Telefone: {{::profissional.empresa.telefone}}</p>
+		</div>
+	</div>		
 </ion-view>
+
+			
